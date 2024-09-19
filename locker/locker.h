@@ -16,11 +16,13 @@ public:
     }
     sem(int num)
     {
-        if(sem_init(&m_sem,0,num)!=0){
+        if(sem_init(&m_sem,0,num)!=0)
+        {
             throw exception();
         }
     }
-    ~sem(){
+    ~sem()
+    {
         sem_destroy(&m_sem);
     }
     bool post(){
@@ -32,4 +34,5 @@ public:
 private:
     sem_t m_sem;
 };
+
 #endif
